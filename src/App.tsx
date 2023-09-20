@@ -6,12 +6,18 @@ import InputSearch from "./components/inputSeach"
 import Footer from "./components/footer"
 import LastReleases from "./components/lastReleases"
 
+import JsonBooks from "./json/Books.json"
+
 export default function App() {
   return (
     <>
       <Header />
       <InputSearch />
-      <LastReleases />
+      <LastReleases
+        title="ÚLTIMOS LANÇAMENTOS"
+        listBook={JsonBooks.LastBooks}
+      />
+      <LastReleases title="MAIS VENDIDOS" listBook={JsonBooks.LastBooks} />
       <SearchedCategories />
       <NewsByEmail />
       <Footer />

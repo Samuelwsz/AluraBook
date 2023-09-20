@@ -1,28 +1,25 @@
-import Apache from "../../public/assets/books/ApacheSpring.png"
+interface Book {
+  name: string
+}
 
-const Books = [
-  {
-    name: Apache,
-  },
-  {
-    name: Apache,
-  },
-  {
-    name: Apache,
-  },
-]
+interface TesteProps {
+  title: string
+  titlebook?: string
+  description?: string
+  price?: string
+  listBook: Book[]
+}
 
-export default function LastReleases() {
+export default function LastReleases({ title, listBook }: TesteProps) {
   return (
     <>
-      <h1 className="text-3xl font-bold text-center text-yellow-500 p-10">
-        ÚLTIMOS LANÇAMENTOS
+      <h1 className="text-3xl font-bold text-center text-yellow-500 p-10 uppercase">
+        {title}
       </h1>
-
       <div className="bg-gray-200 py-8">
         <div className="container mx-auto ">
           <div className="flex flex-wrap -mx-4 justify-center">
-            {Books.map((book, index) => (
+            {listBook.map((book, index) => (
               <div
                 key={index}
                 className=" sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 px-4"
