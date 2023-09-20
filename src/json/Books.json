@@ -1,7 +1,10 @@
 {
   "LastBooks": [
     {
-      "name": "/assets/books/ApacheSpring.png"
+      "name": "/assets/books/ApacheSpring.png",
+      "titlebook": "abc",
+      "description": "aaaaaaaaa",
+      "price": "5050505"
     },
     {
       "name": "/assets/books/jsAssertivo.png"

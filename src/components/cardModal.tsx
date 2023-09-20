@@ -11,8 +11,12 @@ export default function CardModal({
 }: CardModalProps) {
   return (
     <>
-      <div>
-        <h1>Sobre o livro:</h1>
+      <div className="fixed top-0 left-0 w-full h-full flex justify-center ">
+        <div>
+          <h1>Sobre o livro:</h1>
+          <p>X</p>
+        </div>
+
         <h3>{titlebook}</h3>
         <p>{description}</p>
         <p>A partir de:</p>
