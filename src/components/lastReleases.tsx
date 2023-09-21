@@ -1,11 +1,13 @@
-import { MouseEvent, useState } from "react"
+import { useState } from "react"
 import CardModal from "./cardModal"
+import { XMarkIcon } from "@heroicons/react/24/solid"
 
 interface Book {
   name: string
   titlebook?: string
   description?: string
   price?: string
+  author?: string
 }
 
 interface LastReleasesProps {
@@ -53,14 +55,32 @@ export default function LastReleases({ title, listBook }: LastReleasesProps) {
       </div>
 
       {isModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <CardModal
-              titlebook={selectedBook?.titlebook}
-              description={selectedBook?.description}
-              price={selectedBook?.price}
-            />
-            <button onClick={closeModal}>Fechar Modal</button>
+        <div>
+          {/* Fundo cinza transparente */}
+          <div
+            className="fixed top-0 left-0 w-full h-full bg-gray-500 opacity-50 z-10"
+            onClick={closeModal}
+          ></div>
+
+          {/* Modal */}
+          <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-20">
+            <div className="rounded-2xl p-4 relative bg-white w-96 h-96 text-center">
+              <div className="flex flex-col justify-center items-center h-full">
+                <div className=" items-start">
+                  <div className="flex justify-end items-end mb-3">
+                    <button onClick={closeModal}>
+                      <XMarkIcon className="h-6 w-6 ml-2"/>
+                    </button>
+                  </div>
+                  <CardModal
+                    titlebook={selectedBook?.titlebook}
+                    description={selectedBook?.description}
+                    author={selectedBook?.author}
+                    price={selectedBook?.price}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )}

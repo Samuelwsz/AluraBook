@@ -2,15 +2,24 @@
   "LastBooks": [
     {
       "name": "/assets/books/ApacheSpring.png",
-      "titlebook": "abc",
-      "description": "aaaaaaaaa",
-      "price": "5050505"
+      "titlebook": "Apache Kakfa e Spring Boot",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae deserunt illo quos atque nesciunt nulla aliquid laboriosam consectetur. Amet rem eius sequi modi iure pariatur exercitationem harum quisquam voluptatum aspernatur!",
+      "author": "Gabriel Ramos",
+      "price": "30,00"
     },
     {
-      "name": "/assets/books/jsAssertivo.png"
+      "name": "/assets/books/jsAssertivo.png",
+      "titlebook": "JavaScript Assertivo",
+      "description": "Testes e qualidade de código em todas as camadas da aplicação",
+      "author": "Gabriel Ramos",
+      "price": "29,90"
     },
     {
-      "name": "/assets/books/LiderancaDesign.png"
+      "name": "/assets/books/LiderancaDesign.png",
+      "titlebook": "Liderança em Design",
+      "description": "Habilidades de gestão para alavancar sua carreira",
+      "author": "Vitor Zanini",
+      "price": "29,90"
     }
   ]
 }
