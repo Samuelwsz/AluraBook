@@ -46,10 +46,10 @@ export default function Header() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img className="h-8 w-auto" src={Logo} alt="" />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -102,10 +102,15 @@ export default function Header() {
               </Popover.Panel>
             </Transition>
           </Popover>
+          <Link to="/logged">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Favoritos
+            </a>
+          </Link>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Favoritos
-          </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
             Minha estante
           </a>
