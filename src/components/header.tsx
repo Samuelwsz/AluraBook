@@ -8,6 +8,7 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import { Link } from "react-router-dom"
 
 const products = [
   {
@@ -117,9 +118,14 @@ export default function Header() {
           </a>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          <Link to="/login">
+            <a
+              href="#"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </Link>
         </div>
       </nav>
       <Dialog
@@ -195,12 +201,14 @@ export default function Header() {
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
-                >
-                  Log in
-                </a>
+                <Link to="/login">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
+                  >
+                    Log in
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
