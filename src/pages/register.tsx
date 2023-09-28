@@ -159,7 +159,7 @@ export default function Register() {
             </div>
 
             <div className="text-center ">
-              <Button>Cadastrar</Button>
+              <Button primary>Cadastrar</Button>
             </div>
           </form>
         </div>

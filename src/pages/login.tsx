@@ -72,19 +72,21 @@ export default function Login() {
               </div>
             </div>
 
-            <div className="">
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-yellow-500 px-3 py-2 text-xl font-bold leading-6 text-white shadow-sm hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-              >
-                Logar
-              </button>
+            <div>
+              <Link to="/logged">
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-yellow-500 px-3 py-2 text-xl font-bold leading-6 text-white shadow-sm hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                >
+                  Logar
+                </button>
+              </Link>
             </div>
           </form>
           <div className="mt-10 text-center text-sm text-gray-500 justify-between flex items-center">
             <p className="text-base">Ainda não tem uma conta?</p>
             <Link to="/register">
-              <Button>Criar conta</Button>
+              <Button primary>Criar conta</Button>
             </Link>
           </div>
         </div>

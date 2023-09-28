@@ -26,7 +26,7 @@ export default function CardModal({
       <p className="mb-2 text-left font-semibold">A partir de:</p>
       <div className="flex gap-6 justify-between items-center">
         <h2 className="font-bold text-xl text-blue-900">R$: {price}</h2>
-        <Button>Comprar</Button>
+        <Button primary>Comprar</Button>
       </div>
     </>
   )

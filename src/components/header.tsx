@@ -6,6 +6,7 @@ import {
   Bars3Icon,
   XMarkIcon,
   ShoppingBagIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import { Link, useLocation } from "react-router-dom"
@@ -48,7 +49,7 @@ export default function Header() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname === "/logged") {
+    if (location.pathname === "/logged" || location.pathname === "/update") {
       setShowLoginButton(false)
     } else {
       setShowLoginButton(true)
@@ -169,9 +170,10 @@ export default function Header() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               to="/login"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="flex items-center text-sm font-semibold leading-6 text-gray-900"
             >
-              Login <span aria-hidden="true">&rarr;</span>
+              <UserCircleIcon className="h-6 w-6 mr-1" />
+              Login
             </Link>
           </div>
         )}
@@ -179,9 +181,10 @@ export default function Header() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
               to="/login"
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-sm flex items-center gap-1 font-semibold leading-6 text-gray-900"
             >
-              Sair<span aria-hidden="true">&rarr;</span>
+              <UserCircleIcon className="h-4 w-4" />
+              Meu Perfil
             </Link>
           </div>
         )}
@@ -239,35 +242,56 @@ export default function Header() {
                     </>
                   )}
                 </Disclosure>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
-                >
-                  Favoritos
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
-                >
-                  Minha estante
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
-                >
-                  Minha sacola
-                </a>
+                {showFavorites && (
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
+                  >
+                    Favoritos
+                  </a>
+                )}
+                {showMyBookshelf && (
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
+                  >
+                    Minha estante
+                  </a>
+                )}
+                {showMyBag && (
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
+                  >
+                    Minha sacola
+                  </a>
+                )}
               </div>
-              <div className="py-6">
+              {showLoginButton && (
+                <div className="py-6">
+                  <Link to="/login">
+                    <a
+                      href="#"
+                      className="-mx-3 gap-1 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white flex items-center"
+                    >
+                      <UserCircleIcon className="h-4 w-4" />
+                      Login
+                    </a>
+                  </Link>
+                </div>
+              )}
+
+              {showLogoutButton && (
                 <Link to="/login">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
+                    className="-mx-3 gap-1 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white flex items-center"
                   >
-                    Log in
+                    <UserCircleIcon className="h-4 w-4" />
+                    Meu Perfil
                   </a>
                 </Link>
-              </div>
+              )}
             </div>
           </div>
         </Dialog.Panel>

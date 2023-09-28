@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom"
 import Button from "../components/button"
+import InputSearch from "../components/inputSeach"
+import LastReleases from "../components/lastReleases"
+import JsonBooks from "../json/Books.json"
 
 export default function Logged() {
   return (
     <>
+      <InputSearch />
+      <LastReleases
+        title="ÚLTIMOS LANÇAMENTOS"
+        listBook={JsonBooks.LastBooks}
+      />
+      <LastReleases title="MAIS VENDIDOS" listBook={JsonBooks.LastBooks} />
       <div className="flex justify-center gap-5 items-center bg-blue-900 p-8 text-white">
         <div className="p-0 m-0">
           <h1 className="font-semibold mb-8 text-xl uppercase">
