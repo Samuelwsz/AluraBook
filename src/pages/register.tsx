@@ -16,7 +16,7 @@ export default function Register() {
           </Link>
 
           <h2 className="mt-10 text-left text-2xl font-bold leading-9 tracking-tight text-yellow-500 uppercase">
-            Login
+            Registro
           </h2>
         </div>
 
