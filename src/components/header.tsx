@@ -1,6 +1,6 @@
 import Logo from "/assets/Logo.svg"
 
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react"
 import {
   Bars3Icon,
@@ -8,7 +8,7 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 
 const products = [
   {
@@ -39,6 +39,46 @@ function classNames(...classes: (string | undefined | null)[]) {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [showLoginButton, setShowLoginButton] = useState(true)
+  const [showLogoutButton, setShowLogoutButton] = useState(true)
+  const [showFavorites, setShowFavorites] = useState(true)
+  const [showMyBookshelf, setShowMyBookshelf] = useState(true)
+  const [showMyBag, setShowMyBag] = useState(true)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname === "/logged") {
+      setShowLoginButton(false)
+    } else {
+      setShowLoginButton(true)
+    }
+
+    if (location.pathname === "/") {
+      setShowLogoutButton(false)
+    } else {
+      setShowLogoutButton(true)
+    }
+
+    if (location.pathname === "/") {
+      setShowFavorites(false)
+    } else {
+      setShowFavorites(true)
+    }
+
+    if (location.pathname === "/") {
+      setShowMyBookshelf(false)
+    } else {
+      setShowMyBookshelf(true)
+    }
+
+    if (location.pathname === "/") {
+      setShowMyBag(false)
+    } else {
+      setShowMyBag(true)
+    }
+  }, [location.pathname])
+
   return (
     <header className="bg-white">
       <nav
@@ -102,36 +142,49 @@ export default function Header() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <Link to="/logged">
-            <a
-              href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
+          {showFavorites && (
+            <a className="text-sm font-semibold leading-6 text-gray-900">
               Favoritos
             </a>
-          </Link>
+          )}
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Minha estante
-          </a>
-
-          <a
-            href="#"
-            className="flex items-center text-sm font-semibold leading-6 text-gray-900"
-          >
-            <ShoppingBagIcon className="h-6 w-6 mr-1" /> Minha sacola
-          </a>
-        </Popover.Group>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/login">
+          {showMyBookshelf && (
             <a
               href="#"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Log in <span aria-hidden="true">&rarr;</span>
+              Minha estante
             </a>
-          </Link>
-        </div>
+          )}
+          {showMyBag && (
+            <a
+              href="#"
+              className="flex items-center text-sm font-semibold leading-6 text-gray-900"
+            >
+              <ShoppingBagIcon className="h-6 w-6 mr-1" /> Minha sacola
+            </a>
+          )}
+        </Popover.Group>
+        {showLoginButton && (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link
+              to="/login"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Login <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        )}
+        {showLogoutButton && (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link
+              to="/login"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Sair<span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        )}
       </nav>
       <Dialog
         as="div"
