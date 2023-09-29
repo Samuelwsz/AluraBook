@@ -5,6 +5,7 @@ import Register from "../pages/register"
 import MainPage from "../pages/mainPage"
 import Logged from "../pages/logged"
 import UpdateData from "../pages/updateData"
+import Requests from "../pages/requests"
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,12 @@ export const router = createBrowserRouter([
       {
         path: "/update",
         element: <UpdateData />,
+        children: [
+          {
+            path: "/requests",
+            element: <Requests />,
+          },
+        ],
       },
     ],
   },

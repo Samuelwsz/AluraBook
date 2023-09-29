@@ -14,7 +14,7 @@ export default function Button({
   const baseClasses = "pl-4 pr-4 p-2 text-xl font-bold"
   const primaryClasses = "bg-yellow-500 border-2 border-yellow-500 text-white"
   const secondaryClasses =
-    "bg-blue-900 text-orange-500 border-2 border-orange-500"
+    "text-yellow-500 border-2 border-yellow-500"
 
   const buttonClasses = `${baseClasses} ${
     primary ? primaryClasses : secondary ? secondaryClasses : ""
