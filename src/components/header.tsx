@@ -49,7 +49,11 @@ export default function Header() {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname === "/logged" || location.pathname === "/update") {
+    if (
+      location.pathname === "/logged" ||
+      location.pathname === "/updatepage" ||
+      location.pathname === "/updatepage/requests"
+    ) {
       setShowLoginButton(false)
     } else {
       setShowLoginButton(true)
