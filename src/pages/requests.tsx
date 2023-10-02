@@ -1,4 +1,3 @@
-import Button from "../components/button"
 import CardUpdateData from "../components/cardUpdateData"
 
 export default function Requests() {

@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom"
 import Button from "../components/button"
 import imgLogin from "/assets/Login.png"
+import InputComp from "../components/input"
+import { useState } from "react"
 
 export default function Register() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
+  const [complement, setComplement] = useState("")
+  const [CEP, setCEP] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -22,141 +32,50 @@ export default function Register() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label
-                htmlFor="nome"
-                className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-              >
-                Nome
-              </label>
-              <div className="mt-2">
-                <input
-                  id="name"
-                  name="name"
-                  type="name"
-                  autoComplete="name"
-                  placeholder="Seu nome completo"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-              >
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  placeholder="seuemail@email.com"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="nome"
-                className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-              >
-                Endereço
-              </label>
-              <div className="mt-2">
-                <input
-                  id="address"
-                  name="address"
-                  type="address"
-                  autoComplete="address"
-                  placeholder="Sua rua e número"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                />
-              </div>
-            </div>
-
+            <InputComp
+              label="Nome"
+              placeholder="Seu nome completo"
+              value={name}
+              onchange={(e) => setName(e.target.value)}
+            />
+            <InputComp
+              label="Email"
+              placeholder="seuemail@email.com"
+              value={email}
+              onchange={(e) => setEmail(e.target.value)}
+            />
+            <InputComp
+              label="Endereço"
+              placeholder="Sua rua e número"
+              value={address}
+              onchange={(e) => setAddress(e.target.value)}
+            />
             <div className="flex justify-between gap-3">
-              <div>
-                <label
-                  htmlFor="nome"
-                  className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-                >
-                  Complemento
-                </label>
-                <div className="mt-2">
-                  <input
-                    autoComplete=""
-                    placeholder="Apto/casa, referência"
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="nome"
-                  className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-                >
-                  CEP
-                </label>
-                <div className="mt-2">
-                  <input
-                    autoComplete=""
-                    placeholder="Apto/casa e bloco"
-                    required
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                  />
-                </div>
-              </div>
+              <InputComp
+                label="Complemento"
+                placeholder="Apto/casa, referência"
+                value={complement}
+                onchange={(e) => setComplement(e.target.value)}
+              />
+              <InputComp
+                label="CEP"
+                placeholder="Apto/casa e bloco"
+                value={CEP}
+                onchange={(e) => setCEP(e.target.value)}
+              />
             </div>
-
-            <div>
-              <label
-                htmlFor="nome"
-                className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-              >
-                Senha
-              </label>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  placeholder="**********"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="nome"
-                className="block text-sm font-medium leading-6 text-gray-900 outline-none"
-              >
-                Confirmar Senha
-              </label>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  placeholder="**********"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 outline-none p-4"
-                />
-              </div>
-            </div>
+            <InputComp
+              label="Senha"
+              placeholder="**********"
+              value={password}
+              onchange={(e) => setPassword(e.target.value)}
+            />
+            <InputComp
+              label="Confirmar Senha"
+              placeholder="**********"
+              value={confirmPassword}
+              onchange={(e) => setConfirmPassword(e.target.value)}
+            />
 
             <div className="text-center ">
               <Button primary>Cadastrar</Button>
