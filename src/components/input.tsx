@@ -4,7 +4,7 @@ interface InputCompProps {
   label: string
   value: string
   onchange: (event: ChangeEvent<HTMLInputElement>) => void
-  placeholder: string
+  placeholder?: string
 }
 
 export default function InputComp({

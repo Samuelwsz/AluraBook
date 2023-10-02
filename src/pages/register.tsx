@@ -2,7 +2,8 @@ import { Link } from "react-router-dom"
 import Button from "../components/button"
 import imgLogin from "/assets/Login.png"
 import InputComp from "../components/input"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
+import axios from "axios"
 
 export default function Register() {
   const [name, setName] = useState("")
@@ -12,6 +13,34 @@ export default function Register() {
   const [CEP, setCEP] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const user = {
+      name,
+      email,
+      password,
+      address,
+      CEP,
+      complement,
+    }
+
+    axios
+      .post("http://localhost:8000/public/registrar", user)
+      .then(() => {
+        alert("usuario cadastrado!!!")
+        setName("")
+        setEmail("")
+        setAddress("")
+        setComplement("")
+        setCEP("")
+        setPassword("")
+        setConfirmPassword("")
+      })
+      .catch(() => {
+        alert("Algo deu errado!!!")
+      })
+  }
 
   return (
     <>
@@ -31,7 +60,7 @@ export default function Register() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <InputComp
               label="Nome"
               placeholder="Seu nome completo"
@@ -78,7 +107,9 @@ export default function Register() {
             />
 
             <div className="text-center ">
-              <Button primary>Cadastrar</Button>
+              <Button primary type="submit">
+                Cadastrar
+              </Button>
             </div>
           </form>
         </div>
