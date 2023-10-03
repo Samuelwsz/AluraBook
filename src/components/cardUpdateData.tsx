@@ -1,9 +1,9 @@
 import Button from "./button"
 
 interface CardUpdateDataProps {
-  order: string
+  order: number | string
   periodDate: string
-  amount: string
+  amount: string | number
   deliveryMadeIn: string
 }
 
@@ -21,11 +21,10 @@ export default function CardUpdateData({
             Pedido: <span className="font-bold">{order}</span>
           </p>
           <p className="font-semibold">
-            Data do período:
-            <span className="font-bold">{periodDate}</span>
+            Data do período: <span className="font-bold">{periodDate}</span>
           </p>
           <p className="font-semibold">
-            Valor total: <span className="font-bold">R$ {amount}</span>
+            Valor total: <span className="font-bold">{amount}</span>
           </p>
           <p className="font-semibold">
             Entrega realizada em:

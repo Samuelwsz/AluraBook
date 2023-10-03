@@ -154,20 +154,20 @@ export default function Header() {
           )}
 
           {showMyBookshelf && (
-            <a
-              href="#"
+            <Link
+              to="/updatepage/requests"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Minha estante
-            </a>
+            </Link>
           )}
           {showMyBag && (
-            <a
-              href="#"
+            <Link
+              to="/updatepage"
               className="flex items-center text-sm font-semibold leading-6 text-gray-900"
             >
               <ShoppingBagIcon className="h-6 w-6 mr-1" /> Minha sacola
-            </a>
+            </Link>
           )}
         </Popover.Group>
         {showLoginButton && (
@@ -184,7 +184,7 @@ export default function Header() {
         {showLogoutButton && (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <Link
-              to="/login"
+              to="/logged"
               className="text-sm flex items-center gap-1 font-semibold leading-6 text-gray-900"
             >
               <UserCircleIcon className="h-4 w-4" />

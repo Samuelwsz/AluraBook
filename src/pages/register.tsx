@@ -3,7 +3,7 @@ import Button from "../components/button"
 import imgLogin from "/assets/Login.png"
 import InputComp from "../components/input"
 import { FormEvent, useState } from "react"
-import axios from "axios"
+import http from "../http"
 
 export default function Register() {
   const [name, setName] = useState("")
@@ -25,8 +25,8 @@ export default function Register() {
       complement,
     }
 
-    axios
-      .post("http://localhost:8000/public/registrar", user)
+    http
+      .post("/public/registrar", user)
       .then(() => {
         alert("usuario cadastrado!!!")
         setName("")
@@ -46,7 +46,7 @@ export default function Register() {
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <Link to="/">
+          <Link to="/login">
             <img
               className="mx-auto h-20 w-20"
               src={imgLogin}
