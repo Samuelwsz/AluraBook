@@ -18,14 +18,8 @@ export default function Requests() {
   })
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token")
-
     http
-      .get<RequestsProps[]>("/pedidos", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .get<RequestsProps[]>("/pedidos")
       .then((response) => setRequests(response.data))
       .catch((erro) => console.log(erro))
   }, [])
