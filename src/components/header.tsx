@@ -9,7 +9,8 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/solid"
 
 const products = [
   {
@@ -47,6 +48,13 @@ export default function Header() {
   const [showMyBag, setShowMyBag] = useState(true)
 
   const location = useLocation()
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("token")
+    navigate("/")
+  }
 
   useEffect(() => {
     if (
@@ -182,7 +190,7 @@ export default function Header() {
           </div>
         )}
         {showLogoutButton && (
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden items-center lg:flex lg:flex-1 lg:justify-end gap-10">
             <Link
               to="/logged"
               className="text-sm flex items-center gap-1 font-semibold leading-6 text-gray-900"
@@ -190,6 +198,13 @@ export default function Header() {
               <UserCircleIcon className="h-4 w-4" />
               Meu Perfil
             </Link>
+            <button
+              className="text-sm flex items-center gap-1 font-semibold leading-6 text-gray-900"
+              onClick={handleLogout}
+            >
+              <ArrowLeftOnRectangleIcon className="h-4 w-4" />
+              Deslogar
+            </button>
           </div>
         )}
       </nav>
@@ -255,20 +270,20 @@ export default function Header() {
                   </a>
                 )}
                 {showMyBookshelf && (
-                  <a
-                    href="#"
+                  <Link
+                    to="/updatepage/requests"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
                   >
                     Minha estante
-                  </a>
+                  </Link>
                 )}
                 {showMyBag && (
-                  <a
-                    href="#"
+                  <Link
+                    to="/updatepage"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white"
                   >
                     Minha sacola
-                  </a>
+                  </Link>
                 )}
               </div>
               {showLoginButton && (
@@ -286,15 +301,21 @@ export default function Header() {
               )}
 
               {showLogoutButton && (
-                <Link to="/login">
-                  <a
-                    href="#"
+                <>
+                  <Link
+                    to="/logged"
                     className="-mx-3 gap-1 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white flex items-center"
                   >
                     <UserCircleIcon className="h-4 w-4" />
                     Meu Perfil
-                  </a>
-                </Link>
+                  </Link>
+                  <button
+                    className="-mx-3 gap-1 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-blue-900 hover:text-white flex items-center w-full"
+                    onClick={handleLogout}
+                  >
+                    Deslogar
+                  </button>
+                </>
               )}
             </div>
           </div>
