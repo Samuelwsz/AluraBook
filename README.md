@@ -1,11 +1,16 @@
+```
 pnpm install -D tailwindcss postcss autoprefixer
-
+```
+```
 npx tailwindcss init -p
-
+```
+```
 pnpm install @headlessui/react@latest
-
+```
+```
 pnpm install @heroicons/react
-
+```
+```
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.tsx"],
@@ -14,6 +19,10 @@ export default {
   },
   plugins: [],
 }
+```
+
+
+
 
 
 [Link projeto](https://alura-book-swart.vercel.app/)
