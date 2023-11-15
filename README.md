@@ -26,7 +26,7 @@ crie um arquivo global.css
 @tailwind utilities;
 @tailwind components;
 ```
-e importe o global.css no arquivo princial
+e importe o global.css no arquivo principal
 ```
 import "./global.css"
 ```
