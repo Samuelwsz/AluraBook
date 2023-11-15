@@ -20,7 +20,12 @@ export default {
   plugins: [],
 }
 ```
-
+crie um arquivo global.css
+```
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+```
 
 
 
