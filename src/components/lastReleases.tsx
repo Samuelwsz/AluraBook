@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import CardModal from "./cardModal"
 import { XMarkIcon } from "@heroicons/react/24/solid"
 
@@ -28,6 +28,22 @@ export default function LastReleases({ title, listBook }: LastReleasesProps) {
     setSelectedBook(null)
     setIsModalOpen(false)
   }
+
+  const modalRef = useRef<HTMLDivElement>(null)
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      closeModal()
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [handleClickOutside])
 
   return (
     <>
@@ -64,12 +80,15 @@ export default function LastReleases({ title, listBook }: LastReleasesProps) {
 
           {/* Modal */}
           <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center z-20">
-            <div className="rounded-2xl p-4 relative bg-white w-96 h-96 text-center">
+            <div
+              className="rounded-2xl p-4 relative bg-white w-96 h-96 text-center"
+              ref={modalRef}
+            >
               <div className="flex flex-col justify-center items-center h-full">
                 <div className=" items-start">
                   <div className="flex justify-end items-end mb-3">
                     <button onClick={closeModal}>
-                      <XMarkIcon className="h-6 w-6 ml-2"/>
+                      <XMarkIcon className="h-6 w-6 ml-2" />
                     </button>
                   </div>
                   <CardModal
